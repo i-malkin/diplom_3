@@ -23,9 +23,10 @@ class ForgotPasswordPage(BasePage):
     @allure.step('Проверяем что поле пароля активно')
     def is_active_password_field(self):
         field_locator = forgot_password_locators.password_field
-        field = self.driver.find_element(*field_locator)
+        field = self.find_element(field_locator)
         classes = field.get_attribute('class')
         return 'active' in classes
+
 
     @allure.step('Проверяем что адрес ссылки совпадает')
     def is_url_reset_password(self):
